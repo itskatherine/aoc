@@ -32,14 +32,13 @@ for (let i = 0; i < allInstructionsArr.length; i++) {
   const numberOfBoxesToMove = parseInt(allInstructionsArr[i][0]);
   const movedFrom = parseInt(allInstructionsArr[i][1]);
   const movedTo = parseInt(allInstructionsArr[i][2]);
-  const movedBoxes = stacks[movedFrom - 1]
-    .splice(-numberOfBoxesToMove)
-    .reverse();
+  const movedBoxes = stacks[movedFrom - 1].splice(-numberOfBoxesToMove);
+  console.log(movedBoxes, "movedBoxes");
   console.log(numberOfBoxesToMove, "numberOfBoxesToMove");
   console.log(movedFrom, "movedFrom");
   console.log(movedTo, "movedTo");
-  console.log(movedBoxes, "movedBoxes");
   stacks[movedTo - 1].push(...movedBoxes);
+  console.log(stacks);
 }
 
 const topBoxes = stacks.map((arr) => arr.splice(-1)).join("");
